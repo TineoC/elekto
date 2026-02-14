@@ -20,16 +20,16 @@ CSRF_STATE = 'state'
 AUTH_STATE = 'authentication'
 
 # GitHub Endpoints
-# TODO: Make the GitHub externally configurable/overridable. If not specified in env, use github.com
-github_host = 'https://github.com'
-# github_host = 'http://localhost:9000'
+GITHUB_AUTHORIZE = 'https://github.com/login/oauth/authorize'
+GITHUB_ACCESS = 'https://github.com/login/oauth/access_token'
+GITHUB_PROFILE = 'https://api.github.com/user'
 
 if os.environ.get('INTEGRATION_TEST') == 'true':
+    # TODO: Make the GitHub externally configurable/overridable. If not specified in env, use github.com
     github_host = 'http://github:9000'
-
-GITHUB_AUTHORIZE = f'{github_host}/login/oauth/authorize'
-GITHUB_ACCESS = f'{github_host}/login/oauth/access_token'
-GITHUB_PROFILE = f'{github_host}/user'
+    GITHUB_AUTHORIZE = f'{github_host}/login/oauth/authorize'
+    GITHUB_ACCESS = f'{github_host}/login/oauth/access_token'
+    GITHUB_PROFILE = f'{github_host}/user'
 
 # Election attributes related constants
 ELEC_STAT_COMPLETED = 'completed'
