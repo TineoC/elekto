@@ -21,9 +21,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Read version from Makefile
+        id: versions
+        run: echo "python_version=$(sed -n 's/^PYTHON_VERSION:=//p' Makefile)" >> $GITHUB_OUTPUT
+
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: ${{ steps.versions.outputs.python_version }}
 
       - name: Install project
         run: pip install -e .
