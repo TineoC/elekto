@@ -1,4 +1,5 @@
-FROM python:3.13-bookworm AS base
+ARG PYTHON_VERSION=3.13
+FROM python:${PYTHON_VERSION}-bookworm AS base
 
 WORKDIR /app
 
@@ -6,6 +7,8 @@ ADD requirements.txt /app
 RUN pip install -r requirements.txt
 
 ADD . /app
+
+RUN chown -R 10017:10017 /app
 
 USER 10017
 

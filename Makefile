@@ -1,3 +1,4 @@
+PYTHON_VERSION:=3.13
 PYTHON:=venv/bin/python
 PIP:=venv/bin/pip
 PYTEST:=venv/bin/py.test
@@ -23,7 +24,7 @@ cov:
 	open htmlcov/index.html
 
 test-build:
-	docker build . -t elekto-test --target test
+	docker build . -t elekto-test --target test --build-arg PYTHON_VERSION=$(PYTHON_VERSION)
 
 test-docker: test-build
 	docker run -it --rm --entrypoint=./test-entrypoint.sh elekto-test
