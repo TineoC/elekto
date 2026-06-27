@@ -16,7 +16,7 @@
 
 import os
 
-from utils import env, strtobool
+from elekto._env import env, strtobool
 
 
 # Application Name

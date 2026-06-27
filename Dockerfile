@@ -2,10 +2,11 @@ FROM python:3.13-bookworm AS base
 
 WORKDIR /app
 
-ADD requirements.txt /app
+COPY requirements.txt pyproject.toml /app/
 RUN pip install -r requirements.txt
 
-ADD . /app
+COPY . /app
+RUN pip install -e .
 
 USER 10017
 
