@@ -18,6 +18,7 @@ import flask as F
 from flask_wtf.csrf import CSRFProtect
 
 from elekto.models import sql
+from elekto.version import __version__
 
 APP = F.Flask(__name__)
 APP.config.from_object('config')
@@ -47,6 +48,11 @@ def before_request():
 def destroy_session(exception=None):
     # Remove the database session
     SESSION.remove()
+
+
+@APP.context_processor
+def inject_version():
+    return dict(elekto_version=__version__)
 
 
 ####
