@@ -6,6 +6,9 @@ ADD requirements.txt /app
 RUN pip install -r requirements.txt
 
 ADD . /app
+# Install the app itself so its version (from git tags, via setuptools-scm) is recorded.
+# Dependencies already come pinned from requirements.txt.
+RUN pip install --no-deps -e .
 
 USER 10017
 
