@@ -58,7 +58,7 @@ class Election:
     def from_csv(data: dict, no_winners: int):
         candidates = list(data.keys())
         ballots: BallotType = {}
-        row_count = len(next(iter(data.values())))
+        row_count = len(next(iter(data.values()), []))
 
         for v in range(row_count):
             ballots[v] = []
