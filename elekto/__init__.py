@@ -55,8 +55,6 @@ def destroy_session(exception=None):
 def inject_version():
     return dict(elekto_version=__version__,
                 current_year=datetime.datetime.now().year)
-
-
 ####
 # Controllers
 
