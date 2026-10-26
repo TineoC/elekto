@@ -19,7 +19,6 @@ def restore_version_module():
 
 @freeze_time('2026-03-01')
 def test_sidebar_shows_version_and_copyright_range(client: FlaskClient, mocker: MockerFixture):
-    # The context processor reads the name bound in elekto/__init__.py at request time.
     mocker.patch('elekto.__version__', '1.2.3')
     provision_session(client, 'token')
 
