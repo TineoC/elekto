@@ -35,4 +35,4 @@ def test_version_falls_back_when_package_not_installed(mocker: MockerFixture):
 
     importlib.reload(elekto.version)
 
-    assert elekto.version.__version__ == '0.0.0'
+    assert elekto.version.__version__ == '0.0.0+unknown'
