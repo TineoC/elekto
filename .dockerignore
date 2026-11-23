@@ -17,3 +17,19 @@ build/
 dist/
 
 # .git is intentionally kept: the version is derived from git tags at build time.
+
+# Repository assets, docs, and tooling not used at runtime. The app serves
+# elekto/static/ and elekto/templates/; test/ and test-entrypoint.sh are kept
+# for the `test` build stage.
+static/
+docs/
+installation/
+scripts/
+.github/
+docker-compose.yml
+build_container.sh
+Makefile
+environment.yml
+.env.example
+*.md
+!README.md
